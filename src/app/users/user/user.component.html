@@ -1,0 +1,45 @@
+<h1 class="display-4">User Register</h1>
+<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+  <input type="hidden" name="id" #username="ngModel" [(ngModel)]="service.formData.id">
+
+  <div class="form-group">
+    <input  name="username" #username="ngModel" [(ngModel)]="service.formData.username" class="form-control" placeholder="Username" required>
+
+    <div  *ngIf="form.controls['username'].touched && form.controls['username'].hasError('required')"  class="validation-error"> Your username is required</div>
+
+    <!-- <div *ngIf="username.invalid && username.touched" class="validation-error">This field is required.</div> -->
+
+  </div>
+
+  <div class="form-row">
+
+    <div class="form-group col-md-6">
+      <input name="firstName" #username="ngModel" [(ngModel)]="service.formData.firstName" class="form-control" placeholder="First Name" >
+    </div>
+
+    <div class="form-group col-md-6">
+      <input name="lastName" #username="ngModel" [(ngModel)]="service.formData.lastName" class="form-control" placeholder="Last Name">
+    </div>
+
+
+  </div>
+
+  <div class="form-group">
+    <input name="email" #username="ngModel" [(ngModel)]="service.formData.email" class="form-control" placeholder="Email" >
+
+    <!-- <div  *ngIf=" form.controls['email'].touched && form.controls['email'].hasError('required')"  class="validation-error"> Your email is required</div> -->
+
+  </div>
+
+  <div class="form-group">
+    <input name="password" #username="ngModel" [(ngModel)]="service.formData.password" class="form-control" placeholder="Password" >
+    <!-- <div  *ngIf=" form.controls['password'].touched && form.controls['password'].hasError('required')"  class="validation-error"> A password is required</div> -->
+
+  </div>
+
+
+  <div class="form-group">
+    <button class="btn btn-lg btn-block btn-dark" [disabled]="form.invalid" type="submit" name="button"> Register</button>
+
+  </div>
+</form>
